@@ -99,6 +99,14 @@ function choiceIcon(choice) {
 let roundCount = 0;
 let drawCount = 0;
 
+function resultRound() {
+  resultp.innerHTML =
+    `Round: ${roundCount} <br>` +
+    `Player: ${playerCount} | Computer: ${computerCount} <br>` +
+    `Draws: ${drawCount}`;
+  result.appendChild(resultp);
+}
+
 // game(playerSelection, choice);
 declareWinner();
 
@@ -140,7 +148,7 @@ function declareWinner() {
         `Draws: ${drawCount}` +
         "<br><br> It's a Draw!";
       result.appendChild(resultp);
-      computerIcon.textContent = "🤯";
+      computerIcon.textContent = "😑";
       computerIcon.style =
         "font-size: 100px;top: 46px; bottom: auto; filter:grayscale(0)";
     }
@@ -150,6 +158,10 @@ function declareWinner() {
     computerCount = 0;
     computerText.textContent = "";
     namecont.innerHTML = "GAME OVER!";
+    //reset the game after 5 seconds;
+    setTimeout(() => {
+      namecont.innerHTML = "REPLAY?";
+    }, 3000);
   }
 }
 
@@ -174,9 +186,10 @@ function rockClick() {
   content.classList.add("content");
   // namecont.innerHTML = `computer picked ${choice}`;
 
-  resultp.textContent = `Round: ${roundCount}`;
-  result.appendChild(resultp);
-
+  // resultp.textContent = `Round: ${roundCount}`;
+  // result.appendChild(resultp);
+  resultRound();
+  // result;
   //reset the game after 5 seconds;
   // setTimeout(() => {
   //   namecont.innerHTML = "PICK ONE";
@@ -200,8 +213,9 @@ function paperClick() {
   roundCount += 1;
   console.log(roundCount);
 
-  resultp.textContent = `Round: ${roundCount}`;
-  result.appendChild(resultp);
+  // resultp.textContent = `Round: ${roundCount}`;
+  // result.appendChild(resultp);
+  resultRound();
 
   // setTimeout(() => {
   //   namecont.innerHTML = "PICK ONE";
@@ -222,9 +236,9 @@ function scissorsClick() {
 
   roundCount += 1;
   console.log(roundCount);
-  resultp.textContent = `Round: ${roundCount}`;
-  result.appendChild(resultp);
-
+  // resultp.textContent = `Round: ${roundCount}`;
+  // result.appendChild(resultp);
+  resultRound();
   // choiceIcon(choice);
   // setTimeout(() => {
   //   namecont.innerHTML = "PICK ONE";
