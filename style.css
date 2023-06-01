@@ -70,6 +70,7 @@ body {
   align-self: center;
   justify-self: center;
   padding: 25px 40px;
+  margin: 10px;
   /* margin: min(max(20px, 3fr)); */
 }
 
